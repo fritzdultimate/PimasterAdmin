@@ -49,7 +49,7 @@ function SettingsTab() {
 
     async function handleUpdateSettings() {
         setIsLoading(true);
-        const res = await fetch("https://srv898720.hstgr.cloud/api/settings", {
+        const res = await fetch(`${API}/settings`, {
             method: 'POST',
             headers: { 
                 'Content-Type': 'application/json',
