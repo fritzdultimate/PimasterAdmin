@@ -180,6 +180,7 @@ export default function PassphraseTable({ data, table, onDelete }) {
                 {`${(row.mnemonic || "").slice(0, 15)}.....${(row.mnemonic || "").slice(-15)}`}
                 <div className="mt-1 text-[10px] text-gray-300">
                   {table !== 'Sponsors' && <span>status: <span className={`${row.status === 'pending' ? 'text-amber-600' : row.status === 'claimed' ? 'text-green-600' : 'text-gray-600' }`}>{row.status || "—"}</span></span>}
+                  {table !== 'Sponsors' && <span><br />Amount: <strong>{row.amount} PI</strong></span>}
                   {table === 'Sponsors' &&  <span>Created: {row.createdAt ? new Date(row.createdAt).toLocaleString() : "—"}</span>}
                   {table !== 'Sponsors' && <span><br/>Claimable: {row.claimableAt ? `${new Date(row.claimableAt).toLocaleString()} (${timeAgoOrInString(row.claimableAt)})` : "—"}</span>}
                 </div>
