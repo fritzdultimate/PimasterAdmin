@@ -184,6 +184,7 @@ export default function PassphraseTable({ data, table, onDelete }) {
                   {table === 'Sponsors' &&  <span>Created: {row.createdAt ? new Date(row.createdAt).toLocaleString() : "—"}</span>}
                   {table !== 'Sponsors' &&  <span><br />Owner: {row.owner}</span>}
                   {table !== 'Sponsors' && <span><br/>Claimable: {row.claimableAt ? `${new Date(row.claimableAt).toLocaleString()} (${timeAgoOrInString(row.claimableAt)})` : "—"}</span>}
+                  {table === 'Sponsors' && <span><br/>PubKey: {`${(row.publicKey || "").slice(0, 15)}.....${(row.publicKey || "").slice(-15)}`}</span>}
                 </div>
               </TableCell>
               <TableCell className="text-right">
