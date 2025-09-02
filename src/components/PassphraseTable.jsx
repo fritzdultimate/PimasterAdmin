@@ -31,7 +31,6 @@ export default function PassphraseTable({ data, table, onDelete }) {
     if (!v) return 0;
     const t = new Date(v).getTime();
     return Number.isFinite(t) ? t : 0;
-    // if your dates are timestamps already, just: return +v || 0;
   };
 
   const filteredSorted = useMemo(() => {
