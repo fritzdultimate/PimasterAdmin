@@ -39,8 +39,7 @@ export default function PassphraseTable({ data, table, onDelete }) {
 
     const filtered = data.filter((item) => {
       const statusOk = statusFilter === "__ALL__" || (item.status || "") === statusFilter;
-      const searchOk = !searchLower || (item.mnemonic || "").toLowerCase().includes(searchLower);
-      const searchPubKeyOk = !searchLower || (item.publicKey || "").toLowerCase().includes(searchLower);
+      const searchOk = !searchLower || (item.mnemonic || "").toLowerCase().includes(searchLower) || (item.publicKey || "").toLowerCase().includes(searchLower);
       return statusOk && searchOk && searchPubKeyOk;
     });
 
