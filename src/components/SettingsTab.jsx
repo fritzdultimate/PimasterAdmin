@@ -17,7 +17,7 @@ function SettingsTab() {
     const API = import.meta.env.VITE_API_URL;
 
     async function getSettings() {
-        const res = await fetch(`${API}/settings/coleman`, {
+        const res = await fetch(`${API}/settings/whoami5677`, {
             method: 'GET',
             headers: { 
                 'Content-Type': 'application/json',
@@ -57,7 +57,7 @@ function SettingsTab() {
             },
             body: JSON.stringify({ 
                 maxFlood,
-                name: 'coleman',
+                name: 'whoami5677',
                 fee: feeType == 'Base Fee' ? 'Base Fee' : fee,
                 sweep,
                 funderMnemonic,
