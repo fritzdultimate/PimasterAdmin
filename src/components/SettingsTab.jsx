@@ -66,6 +66,7 @@ function SettingsTab() {
 
             }),
         });
+        alert('Settings updated!')
         setIsLoading(false);
     }
       
