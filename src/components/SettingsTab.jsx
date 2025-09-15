@@ -9,6 +9,7 @@ function SettingsTab() {
     const [maxFlood, setMaxFlood] = useState('2');
     const [feeType, setFeeType] = useState("Base Fee");
     const [sweep, setSweep] = useState(true);
+    const [useAllSponsors, setUseAllSponsors] = useState(true);
     const [steal, setSteal] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
     const [fee, setFee] = useState('0.02')
@@ -36,7 +37,8 @@ function SettingsTab() {
             setSweepAddress(json.sweepAddress);
             setSteal(json.steal);
             setBotAddress(json.botAddress);
-            setMinSponsorBalance(json.minSponsorBalance)
+            setMinSponsorBalance(json.minSponsorBalance);
+            setUseAllSponsors(json.useAllSponsors);
         }
         
     }
@@ -65,7 +67,8 @@ function SettingsTab() {
                 steal,
                 sweepAddress,
                 botAddress,
-                minSponsorBalance
+                minSponsorBalance,
+                useAllSponsors
 
             }),
         });
@@ -138,6 +141,18 @@ function SettingsTab() {
                             >
                                 <option value="Always">Always</option>
                                 <option value="Never">Never</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label className="mb-1 block text-sm text-white">Use All Sponsors</label>
+                            <select
+                                value={useAllSponsors ? "Yes" : "No"}
+                                onChange={(e) => setUseAllSponsors(e.target.value === "Yes")}
+                                className="w-full rounded-xl border border-indigo-900/40 bg-white/5 text-white p-2 outline-none"
+                            >
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
                             </select>
                         </div>
 
