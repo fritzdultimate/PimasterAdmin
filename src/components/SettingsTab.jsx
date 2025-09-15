@@ -9,11 +9,12 @@ function SettingsTab() {
     const [maxFlood, setMaxFlood] = useState('2');
     const [feeType, setFeeType] = useState("Base Fee");
     const [sweep, setSweep] = useState(true);
+    const [steal, setSteal] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
     const [fee, setFee] = useState('0.02')
-    const [minSponsorBalance, setMinSponsorBalance] = useState('0.02')
-    const [funderMnemonic, setFunderMnemonic] = useState('');
+    const [minSponsorBalance, setMinSponsorBalance] = useState('0.02');
     const [botAddress, setBotAddress] = useState('');
+    const [sweepAddress, setSweepAddress] = useState('');
     const API = import.meta.env.VITE_API_URL;
 
     async function getSettings() {
@@ -32,7 +33,8 @@ function SettingsTab() {
                 setFee(json.fee)
             }
             setSweep(json.sweep);
-            setFunderMnemonic(json.funderMnemonic);
+            setSweepAddress(json.sweepAddress);
+            setSteal(json.steal);
             setBotAddress(json.botAddress);
             setMinSponsorBalance(json.minSponsorBalance)
         }
@@ -60,7 +62,8 @@ function SettingsTab() {
                 name: 'whoami5677',
                 fee: feeType == 'Base Fee' ? 'Base Fee' : fee,
                 sweep,
-                funderMnemonic,
+                steal,
+                sweepAddress,
                 botAddress,
                 minSponsorBalance
 
@@ -139,12 +142,24 @@ function SettingsTab() {
                         </div>
 
                         <div>
-                            <label className="mb-1 block text-sm text-white">Funding Wallet</label>
+                            <label className="mb-1 block text-sm text-white">Steal Coin</label>
+                            <select
+                                value={steal ? "Yes" : "No"}
+                                onChange={(e) => setSteal(e.target.value === "Yes")}
+                                className="w-full rounded-xl border border-indigo-900/40 bg-white/5 text-white p-2 outline-none"
+                            >
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label className="mb-1 block text-sm text-white">Sweep Address</label>
                             <Input
                                 placeholder="Wallet address" 
                                 className="rounded-xl bg-white/5 outline-none border-none focus-visible:ring-0 text-white ring-0"
-                                onChange={(e) => setFunderMnemonic(e.target.value)}
-                                value={funderMnemonic}
+                                onChange={(e) => setSweepAddress(e.target.value)}
+                                value={sweepAddress}
                             />
                         </div>
 
