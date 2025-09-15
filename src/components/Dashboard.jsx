@@ -1,8 +1,5 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Bot, Menu, X, LayoutDashboard, Users, Wallet, Settings, Activity, Coins } from "lucide-react";
+import { Users, Wallet, Settings, Activity } from "lucide-react";
 import Activities from "./Activities";
 import SettingsTab from "./SettingsTab";
 import Wallets from "./Wallets";
@@ -10,6 +7,7 @@ import Sponsors from "./Sponsors";
 import Sidebar from "./layout/Sidebar";
 import Header from "./layout/Header";
 import Overview from "./Overview";
+import AllLockedWallets from "./AllLockedWallets";
 
 export default function Dashboard() {
   const [activeTab, setActiveTab] = useState("overview");
@@ -18,6 +16,7 @@ export default function Dashboard() {
   const nav = [
     { key: "sponsors", label: "Sponsors", icon: Users },
     { key: "wallets", label: "Wallets", icon: Wallet },
+    { key: "all_locked_wallets", label: "All Locked Wallets", icon: Wallet },
     { key: "settings", label: "Settings", icon: Settings },
     { key: "activities", label: "Activities", icon: Activity },
   ];
@@ -40,6 +39,7 @@ export default function Dashboard() {
           {activeTab === "wallets" && <Wallets />}
           {activeTab === "settings" && <SettingsTab />}
           {activeTab === "activities" && <Activities />}
+          {activeTab === "all_locked_wallets" && <AllLockedWallets />}
         </main>
       </div>
     </div>
