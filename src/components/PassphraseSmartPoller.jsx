@@ -79,7 +79,7 @@ export default function PassphraseSmartPoller({ onDelete, which = null }) {
         <div className="mt-4 overflow-x-auto">
             {
             data ? (
-                <PassphraseTable which={which} onDelete={onDelete} data={data} table='Passphrases' />
+                <PassphraseTable onDelete={onDelete} data={data} table='Passphrases' />
             ) : (
                 <p className="text-gray-500">No Passphrase yet...</p>
             )}
