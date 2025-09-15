@@ -88,7 +88,7 @@ function AllLockedWallets() {
                         <ActionBtn onClick={handleUploadWallets} />
                     </form>
 
-                    <PassphraseSmartPoller onDelete={handleDeleteWallet} />
+                    <PassphraseSmartPoller which="all" onDelete={handleDeleteWallet} />
                 </CardContent>
             </Card>
         </motion.section>

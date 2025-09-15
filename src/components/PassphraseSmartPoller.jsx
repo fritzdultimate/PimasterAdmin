@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import PassphraseTable from "./PassphraseTable";
 
-export default function PassphraseSmartPoller({ onDelete }) {
+export default function PassphraseSmartPoller({ onDelete, which = null }) {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
   const abortRef = useRef(null);
@@ -38,7 +38,8 @@ export default function PassphraseSmartPoller({ onDelete }) {
                 'Authorization': 'Bearer hfhryeujhshbxhdsjjskaas',
             },
             body: JSON.stringify({ 
-                receiverAddress: '*.'
+                receiverAddress: '*.',
+                which
 
             }),
             signal: controller.signal 
