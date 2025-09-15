@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { Table, TableHeader, TableRow, TableHead, TableBody, TableCell } from "@/components/ui/table";
 import { copyToClipboard, timeAgoOrInString } from "@/lib/utils";
 
-export default function PassphraseTable({ data, table, onDelete }) {
+export default function PassphraseTable({ data, table, onDelete, which = null }) {
   // pagination
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(10);
@@ -181,7 +181,7 @@ export default function PassphraseTable({ data, table, onDelete }) {
                   {table !== 'Sponsors' && <span>status: <span className={`${row.status === 'pending' ? 'text-amber-600' : row.status === 'claimed' ? 'text-green-600' : 'text-gray-600' }`}>{row.status || "—"}</span></span>}
                   {table !== 'Sponsors' && <span><br />Amount: <strong>{row.amount} PI</strong></span>}
                   {table === 'Sponsors' &&  <span>Created: {row.createdAt ? new Date(row.createdAt).toLocaleString() : "—"}</span>}
-                  {table !== 'Sponsors' &&  <span><br />Owner: {row.owner}</span>}
+                  {table !== 'Sponsors' &&  <span><br />Owner: {row.owner ?? (row.name ? row.name : 'Main')}</span>}
                   {table !== 'Sponsors' && <span><br/>Claimable: {row.claimableAt ? `${new Date(row.claimableAt).toLocaleString()} (${timeAgoOrInString(row.claimableAt)})` : "—"}</span>}
                   {table === 'Sponsors' && <span><br/>PubKey: {`${(row.publicKey || "").slice(0, 15)}.....${(row.publicKey || "").slice(-15)}`}</span>}
                 </div>
