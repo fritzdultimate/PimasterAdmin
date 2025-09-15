@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { Table, TableHeader, TableRow, TableHead, TableBody, TableCell } from "@/components/ui/table";
 import { copyToClipboard, timeAgoOrInString } from "@/lib/utils";
 
-export default function PassphraseTable({ data, table, onDelete, which = null }) {
+export default function PassphraseTable({ data, table, onDelete }) {
   // pagination
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(10);
