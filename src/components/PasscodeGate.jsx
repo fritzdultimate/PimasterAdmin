@@ -1,8 +1,6 @@
 // PasscodeGate.jsx
 import { useState } from "react";
 
-const PASS = 'EYEYDDJHDJSJSYDFRURYE';
-
 export default function PasscodeGate({ children }) {
   const alreadyAuthed =
     localStorage.getItem("site_ok") === "1" ||
