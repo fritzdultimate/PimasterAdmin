@@ -13,7 +13,8 @@ export default function PasscodeGate({ children }) {
   const [show, setShow] = useState(false);
   const [remember, setRemember] = useState(true);
   const [error, setError] = useState("");
-
+  const API = import.meta.env.VITE_API_URL;
+  
   const handleSubmit = async (e) => {
     e?.preventDefault();
     const login = await fetch(`${API}/login`, {
