@@ -14,7 +14,7 @@ export default function PasscodeGate({ children }) {
   const [remember, setRemember] = useState(true);
   const [error, setError] = useState("");
   const API = import.meta.env.VITE_API_URL;
-  
+
   const handleSubmit = async (e) => {
     e?.preventDefault();
     const login = await fetch(`${API}/login`, {
@@ -29,8 +29,7 @@ export default function PasscodeGate({ children }) {
         }),
     });
     const loginJson = await login.json();
-    console.log(loginJson);
-    if (code === PASS) {
+    if (loginJson.success) {
       (remember ? localStorage : sessionStorage).setItem("site_ok", "1");
       setOk(true);
     } else {
