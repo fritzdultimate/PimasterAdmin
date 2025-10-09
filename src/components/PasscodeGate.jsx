@@ -1,7 +1,7 @@
 // PasscodeGate.jsx
 import { useState } from "react";
 
-const PASS = 'justme';
+const PASS = 'EYEYDDJHDJSJSYDFRURYE';
 
 export default function PasscodeGate({ children }) {
   const alreadyAuthed =
@@ -14,8 +14,21 @@ export default function PasscodeGate({ children }) {
   const [remember, setRemember] = useState(true);
   const [error, setError] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e?.preventDefault();
+    const login = await fetch(`${API}/login`, {
+        method: 'POST',
+        headers: { 
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer hfhryeujhshbxhdsjjskaas',
+        },
+        body: JSON.stringify({ 
+            pass: code
+
+        }),
+    });
+    const loginJson = await login.json();
+    console.log(loginJson);
     if (code === PASS) {
       (remember ? localStorage : sessionStorage).setItem("site_ok", "1");
       setOk(true);
