@@ -9,12 +9,14 @@ export default function PasscodeGate({ children }) {
   const [ok, setOk] = useState(alreadyAuthed);
   const [code, setCode] = useState("");
   const [show, setShow] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [remember, setRemember] = useState(true);
   const [error, setError] = useState("");
   const API = import.meta.env.VITE_API_URL;
 
   const handleSubmit = async (e) => {
     e?.preventDefault();
+    setLoading(true);
     const login = await fetch(`${API}/login`, {
         method: 'POST',
         headers: { 
@@ -33,6 +35,7 @@ export default function PasscodeGate({ children }) {
     } else {
       setError("Wrong passcode. Try again.");
     }
+    setLoading(true)
   };
 
   if (ok) return children;
