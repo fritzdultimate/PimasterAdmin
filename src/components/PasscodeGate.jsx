@@ -184,7 +184,7 @@ export default function PasscodeGate({ children }) {
                   "focus:outline-none focus-visible:ring-4 focus-visible:ring-indigo-500/30",
                 ].join(" ")}
               >
-                Continue
+                { loading ? 'Loading' : 'Continue'}
               </button>
             </form>
           </div>
