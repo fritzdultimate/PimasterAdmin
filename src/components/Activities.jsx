@@ -53,6 +53,7 @@ function Activities() {
                                             <TableCell>{ log.action }</TableCell>
                                             <TableCell>{log.mnemonic}</TableCell>
                                             <TableCell>{ timeAgoOrInString(log.timestamp) }</TableCell>
+                                            <TableCell>Hey</TableCell>
                                         </TableRow>
                                     ))
                                 }
