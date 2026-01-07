@@ -96,7 +96,7 @@ export default function PassphraseTable({ data, table, onDelete }) {
         } finally {
             setDeletingId(null);
         }
-  };
+    };
 
   return (
     <div className="space-y-3">

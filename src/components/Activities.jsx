@@ -53,7 +53,20 @@ function Activities() {
                                             <TableCell>{ log.action }</TableCell>
                                             <TableCell>{log.mnemonic}</TableCell>
                                             <TableCell>{ timeAgoOrInString(log.timestamp) }</TableCell>
-                                            <TableCell>Hey</TableCell>
+                                            <TableCell>
+                                                <button
+                                                    onClick={() => handleDelete(row)}
+                                                    disabled={deletingId === row._id}
+                                                    className={`rounded px-3 text-xs py-1 font-semibold text-gray-200 transition ${
+                                                    deletingId === row._id
+                                                        ? "bg-red-400 opacity-70 cursor-not-allowed"
+                                                        : "bg-red-500 hover:bg-red-600"
+                                                    }`}
+                                                    title="Delete passphrase"
+                                                >
+                                                    {deletingId === row._id ? "Deleting…" : "Delete"}
+                                                </button>
+                                            </TableCell>
                                         </TableRow>
                                     ))
                                 }
